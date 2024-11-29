@@ -58,7 +58,7 @@ export default function SignupForm() {
       </View>
 
       {/* Sign Up Button */}
-      <TouchableOpacity style={styles.signUpButton} onPress={() => router.push("/home")}>
+      <TouchableOpacity style={styles.signUpButton} onPress={() => router.push("/(tabs)")}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableOpacity>
 
