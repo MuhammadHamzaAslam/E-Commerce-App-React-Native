@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -12,7 +13,7 @@ import {
 const { width, height } = Dimensions.get("window");
 
 export default function OnBoard3() {
-    const [board , setBoard] = useState(3)
+  const [board, setBoard] = useState(3);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>WELCOME TO</Text>
@@ -26,13 +27,28 @@ export default function OnBoard3() {
       </View>
 
       <View style={styles.indicatorContainer}>
-        <View style={[styles.indicator, board === 1 && styles.activeIndicator]} />
-        <View style={[styles.indicator, board === 2 && styles.activeIndicator]} />
-        <View style={[styles.indicator, board === 3 && styles.activeIndicator]} />
+        <View style={[styles.indicator, board === 1 && styles.activeIndicator]}>
+          <TouchableOpacity
+            onPress={() => router.push("/onBoard1")}
+          ></TouchableOpacity>
+        </View>
+        <View style={[styles.indicator, board === 2 && styles.activeIndicator]}>
+          <TouchableOpacity
+            onPress={() => router.push("/onBoard2")}
+          ></TouchableOpacity>
+        </View>
+        <View style={[styles.indicator, board === 3 && styles.activeIndicator]}>
+          <TouchableOpacity
+            onPress={() => router.push("/onBoard3")}
+          ></TouchableOpacity>
+        </View>
       </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Get Started</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/login")}
+      >
+        <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
     </View>
   );

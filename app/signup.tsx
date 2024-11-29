@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -10,25 +9,28 @@ import {
   Image,
 } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { router } from "expo-router";
+
 const { width, height } = Dimensions.get("window");
 
-export default function LoginForm() {
+export default function SignupForm() {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
     <View style={styles.container}>
       {/* Back Button */}
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-        <Text style={styles.backArrow}>
-          <FontAwesome6 name="arrow-left" size={20} color="black" />
-        </Text>
+        <FontAwesome6 name="arrow-left" size={20} color="black" />
       </TouchableOpacity>
 
       {/* Header */}
-      <Text style={styles.header}>Hello Again!</Text>
+      <Text style={styles.header}>Register Account</Text>
       <Text style={styles.subHeader}>
         Fill Your Details Or Continue With Social Media
       </Text>
+
+      {/* Name Input */}
+      <TextInput style={styles.input} placeholder="Your Name" />
 
       {/* Email Input */}
       <TextInput
@@ -55,15 +57,12 @@ export default function LoginForm() {
         </TouchableOpacity>
       </View>
 
-      {/* Recovery Password */}
-      <Text style={styles.recovery}>Recovery Password</Text>
-
-      {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton}>
-        <Text style={styles.signInButtonText}>Sign In</Text>
+      {/* Sign Up Button */}
+      <TouchableOpacity style={styles.signUpButton} onPress={() => router.push("/home")}>
+        <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableOpacity>
 
-      {/* Sign In With Google */}
+      {/* Sign Up With Google */}
       <TouchableOpacity style={styles.googleButton}>
         <Image
           source={{
@@ -71,12 +70,12 @@ export default function LoginForm() {
           }}
           style={styles.googleIcon}
         />
-        <Text style={styles.googleButtonText}>Sign In With Google</Text>
+        <Text style={styles.googleButtonText}>Sign Up With Google</Text>
       </TouchableOpacity>
 
-      {/* Sign Up Link */}
-      <Text style={styles.signUp} onPress={() => router.push("/signup")}>
-        New User? <Text style={styles.signUpLink}>Create Account</Text>
+      {/* Log In Link */}
+      <Text style={styles.logIn} onPress={() => router.back()}>
+        Already Have Account? <Text style={styles.logInLink}>Log In</Text>
       </Text>
     </View>
   );
@@ -92,11 +91,11 @@ const styles = StyleSheet.create({
   backButton: {
     position: "absolute",
     top: height * 0.05,
+    marginTop: 10,
     left: width * 0.05,
   },
   backArrow: {
     fontSize: width * 0.07,
-    marginTop: 10,
   },
   header: {
     fontSize: width * 0.08,
@@ -137,20 +136,14 @@ const styles = StyleSheet.create({
     fontSize: width * 0.05,
     marginRight: width * 0.02,
   },
-  recovery: {
-    textAlign: "right",
-    marginTop: height * 0.01,
-    fontSize: width * 0.035,
-    color: "#007bff",
-  },
-  signInButton: {
+  signUpButton: {
     backgroundColor: "#007bff",
     paddingVertical: height * 0.015,
     borderRadius: 8,
     marginTop: height * 0.04,
     alignItems: "center",
   },
-  signInButtonText: {
+  signUpButtonText: {
     color: "#fff",
     fontWeight: "600",
     fontSize: width * 0.045,
@@ -173,12 +166,12 @@ const styles = StyleSheet.create({
     fontSize: width * 0.045,
     color: "#333",
   },
-  signUp: {
+  logIn: {
     textAlign: "center",
     marginTop: height * 0.03,
     fontSize: width * 0.04,
   },
-  signUpLink: {
+  logInLink: {
     color: "#007bff",
     fontWeight: "600",
   },

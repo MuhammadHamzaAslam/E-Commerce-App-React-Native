@@ -35,6 +35,9 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="index" />
         <Stack.Screen name="onBoard1" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="signup" />
+        <Stack.Screen name="home" />
         <Stack.Screen name="onBoard2" />
         <Stack.Screen name="onBoard3" />
         <Stack.Screen name="+not-found" />
